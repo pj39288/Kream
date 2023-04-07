@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+#wrap{
+	width:1200px;
+	margin:auto; 
+}
+
+header{
+	height:100px;
+	background-color:#dddddd;
+}
+
+.contents > .join-box{
+	height:1000px;
+	width:800px;
+}
+
+.image-icon-size{
+	font-size:25px;
+	color:green;
+}
+
+
+footer{
+	height:70px;
+}
