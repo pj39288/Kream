@@ -7,8 +7,15 @@
 
 header{
 	height:100px;
+	width:200px;
 	background-color:#dddddd;
 }
+
+nav{
+	height:100px;
+	width:1000px;
+}
+
 
 .contents > .join-box{
 	height:1000px;
