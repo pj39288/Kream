@@ -22,6 +22,16 @@ nav{
 	width:800px;
 }
 
+.contents > .login-box{
+	height:700px;
+	width:800px;
+}
+
+.contents > .edit-box{
+	height:1000px;
+	width:800px;
+}
+
 .image-icon-size{
 	font-size:25px;
 	color:green;

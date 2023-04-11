@@ -13,8 +13,6 @@
 			, `email`
 			, `password`
 			, `userName`
-			, `phoneNumber`
-			, `address`
 			, `createdAt`
 			, `updatedAt`
 		
@@ -25,13 +23,23 @@
 			, #{email}
 			, #{password}
 			, #{userName}
-			, #{phoneNumber}
-			, #{address}
 			, now()
 			, now()
 		)
 	
 	
 	</insert>
+	
+	<select id="selectUser" parameterType="map" resultType="com.doongie.kream.user.model.User">
+		SELECT 
+			*
+		FROM
+			`user`
+		WHERE
+			`email` = #{email}
+		AND
+			`password` = #{password}		
+	
+	</select>
 
 </mapper>
