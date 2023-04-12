@@ -41,8 +41,9 @@ public class UserRestController {
 		}
 		
 		return resultMap;
-		
 	}
+	
+	
 	
 	@PostMapping("/login")
 	public Map<String, String> login(
@@ -59,6 +60,7 @@ public class UserRestController {
 			
 			HttpSession session = request.getSession();
 			
+			session.setAttribute("id", user.getId());
 			session.setAttribute("email", email);
 			session.setAttribute("userName", user.getUserName());
 			
@@ -67,6 +69,32 @@ public class UserRestController {
 		}
 		
 		// model.addAttribute("user", user);
+		
+		return resultMap;
+	}
+	
+	
+	
+	@PostMapping("/edit")
+	public Map<String, String> edit(
+			@RequestParam("email") String email
+			, @RequestParam("password") String password
+			, @RequestParam("userName") String userName
+			, @RequestParam("phoneNumber") String phoneNumber
+			, @RequestParam("address") String address
+			, HttpSession session){
+		
+		int id = (Integer) session.getAttribute("id");
+		
+		int count = userBO.editUser(email, password, userName, phoneNumber, address, id);
+		
+		Map<String, String> resultMap = new HashMap<>();
+		
+		if(count == 1) {
+			resultMap.put("result", "success");
+		} else {
+			resultMap.put("result", "fail");
+		}
 		
 		return resultMap;
 		

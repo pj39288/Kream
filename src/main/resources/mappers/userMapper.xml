@@ -32,13 +32,56 @@
 	
 	<select id="selectUser" parameterType="map" resultType="com.doongie.kream.user.model.User">
 		SELECT 
-			*
+			`id`
+			,`is_manager`
+			, `email`
+			, `password`
+			, `userName`
+			, `phoneNumber`
+			, `address`
+			, `createdAt`
+			, `updatedAt`
 		FROM
 			`user`
 		WHERE
 			`email` = #{email}
 		AND
 			`password` = #{password}		
+	
+	</select>
+	
+	<update id="updateUser" parameterType="map">
+	
+		UPDATE
+			`user`
+		SET
+			`email` = #{email}
+			, `password` = #{password}
+			, `userName` = #{userName}
+			, `phoneNumber` = #{phoneNumber}
+			, `address` = #{address}
+			, `updatedAt` = now()
+		WHERE
+			`id` = #{id}	
+			
+	</update>
+	
+	<select id="selectUserById" resultType="com.doongie.kream.user.model.User">
+		
+		SELECT 
+			`id`
+			,`is_manager`
+			, `email`
+			, `password`
+			, `userName`
+			, `phoneNumber`
+			, `address`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`user`
+		WHERE
+			`id` = #{id}	
 	
 	</select>
 

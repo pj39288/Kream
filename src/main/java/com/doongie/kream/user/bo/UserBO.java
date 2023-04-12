@@ -18,7 +18,6 @@ public class UserBO {
 		String encryptPassword = EncryptService.md5(password);		
 		
 		return userDAO.insertUser(is_manager, email, encryptPassword, userName);
-		
 	}
 	
 	public User getUser(String email, String password) {
@@ -27,5 +26,20 @@ public class UserBO {
 		
 		return userDAO.selectUser(email, encryptPassword);
 	}
+	
+	
+	public int editUser(String email, String password, String userName, String phoneNumber, String address, int id) {
+		
+		String encryptPassword = EncryptService.md5(password);
+		
+		return userDAO.updateUser(email, encryptPassword, userName, phoneNumber, address, id);
+	}
+	
+	public User getUserById(int id) {
+		
+		return userDAO.selectUserById(id);
+	}
+	
+	
 
 }

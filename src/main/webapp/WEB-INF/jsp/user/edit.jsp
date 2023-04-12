@@ -43,15 +43,52 @@
 				
 				
 				<hr>
+				<div class="d-flex justify-content-between">
+					<h3>사진</h3>
+					<div>
+						<h3>" ${userName} " 님 안녕하세요</h3> 
+					</div>
+					<a href="/user/logout/view">로그아웃</a>
+					<button type="button" id="logoutBtn">로그아웃</button>				
+				</div>
+				<hr>
 				<div>
 					<h3>로그인 정보</h3>
-					<button type="button" id="doublecheckBtn">아이디 중복확인</button>				
+					<br>
+					
+						<div class="d-flex justify-content-center">
+							<h5>이메일 주소</h5>
+							<input type="text" id="emailInput" value="${email}">						
+						</div>
+						<br>
+						
+						<div class="d-flex justify-content-center">
+							<h5>비밀번호</h5>					
+							<input type="text" id="passwordInput" value="${user.password }">
+						</div>
 				</div>
-				<input type="text" id="emailInput" placeholder="가입할 이메일을 입력하세요">
-
-				<input type="text" id="userNameInput" placeholder="사용할 닉네임을 입력하세요">	<br>	
-				<input type="text" id="phoneNumberInput" placeholder="사용할 전화번호를 입력하세요">	<br>	
-				<input type="text" id="addressInput" placeholder="사용할 주소를 입력하세요">	<br>	
+				<hr>
+				
+				<div>
+					<h3>개인 정보</h3>
+					<br>
+						<div class="d-flex justify-content-center">
+							<h5>이름</h5>
+							<input type="text" id="userNameInput" value="${userName}">	<br>
+						</div>
+						<br>
+						
+						<div class="d-flex justify-content-center">
+							<h5>휴대폰 번호</h5>	
+							<input type="text" id="phoneNumberInput" value="${user.phoneNumber}">	<br>
+						</div>
+						<br>
+						
+						<div class="d-flex justify-content-center">
+							<h5>주소지</h5>	
+							<input type="text" id="addressInput" value="${user.address}">	<br>	
+						</div>
+				</div>
 
 				
 				<br>
@@ -72,6 +109,12 @@
 		</footer>
 	
 	</div>
+	
+	<script>
+	
+	
+	
+	</script>
 
 </body>
 </html>

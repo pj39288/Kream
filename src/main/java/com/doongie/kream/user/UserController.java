@@ -3,13 +3,21 @@ package com.doongie.kream.user;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.doongie.kream.user.bo.UserBO;
+import com.doongie.kream.user.model.User;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
+	@Autowired
+	private UserBO userBO;
 	
 	// 회원가입 페이지
 	@GetMapping("/signup/view")
@@ -32,6 +40,7 @@ public class UserController {
 		
 		HttpSession session = request.getSession();
 		
+		session.removeAttribute("id");
 		session.removeAttribute("email");
 		session.removeAttribute("userName");
 		
@@ -41,7 +50,14 @@ public class UserController {
 	
 	// 회원정보 편집 페이지
 	@GetMapping("/edit/view")
-	public String editInput(HttpServletRequest request) {
+	public String editInput(HttpSession session, Model model) {
+		
+		int id = (Integer) session.getAttribute("id");
+		
+		User user = userBO.getUserById(id);
+		
+		model.addAttribute("user", user);
+		
 		return "/user/edit";
 	}
 

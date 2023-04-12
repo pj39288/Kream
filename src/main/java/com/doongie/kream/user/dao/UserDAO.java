@@ -17,5 +17,15 @@ public interface UserDAO {
 	public User selectUser(
 			@Param("email") String email
 			, @Param("password") String password);
+	
+	public int updateUser(
+			@Param("email") String email
+			, @Param("password") String password
+			, @Param("userName") String userName
+			, @Param("phoneNumber") String phoneNumber
+			, @Param("address") String address
+			, @Param("id") int id);
+	
+	public User selectUserById(@Param("id") int id);
 
 }
