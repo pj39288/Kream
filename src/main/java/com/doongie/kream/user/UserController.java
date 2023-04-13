@@ -60,5 +60,6 @@ public class UserController {
 		
 		return "/user/edit";
 	}
+	
 
 }

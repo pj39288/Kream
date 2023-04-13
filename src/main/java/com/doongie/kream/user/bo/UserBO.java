@@ -30,7 +30,15 @@ public class UserBO {
 	
 	public int editUser(String email, String password, String userName, String phoneNumber, String address, int id) {
 		
-		String encryptPassword = EncryptService.md5(password);
+		User user = getUserById(id);
+		
+		String encryptPassword = "";
+		
+		if(password.equals("")) {
+			encryptPassword = user.getPassword();
+		} else {			
+			encryptPassword = EncryptService.md5(password);
+		}
 		
 		return userDAO.updateUser(email, encryptPassword, userName, phoneNumber, address, id);
 	}

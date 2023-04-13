@@ -32,6 +32,11 @@ nav{
 	width:800px;
 }
 
+.contents > .create-box{
+	height: 1000px;
+	width: 800px;
+}
+
 .image-icon-size{
 	font-size:25px;
 	color:green;

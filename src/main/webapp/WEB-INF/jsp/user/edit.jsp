@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +65,7 @@
 						
 						<div class="d-flex justify-content-center">
 							<h5>비밀번호</h5>					
-							<input type="text" id="passwordInput" value="${user.password }">
+							<input type="text" id="passwordInput" placeholder="수정할 비밀번호를 입력하세요">
 						</div>
 				</div>
 				<hr>
@@ -92,7 +93,12 @@
 
 				
 				<br>
-				<button type="button" id="editBtn">회원가입 수정</button>		
+				<div class="d-flex justify-content-center">
+					<button type="button" id="editBtn">회원가입 수정</button>	
+					
+					<a href="">관리자용 게시버튼</a>				
+				</div>
+					
 				<hr>	
 			
 			
@@ -111,6 +117,42 @@
 	</div>
 	
 	<script>
+		$(document).ready(function(){
+			$("#editBtn").on("click", function(){
+				
+				let email = $("#emailInput").val();
+				let password = $("#passwordInput").val();
+				let userName = $("#userNameInput").val();
+				let phoneNumber = $("#phoneNumberInput").val();
+				let address = $("#addressInput").val();
+								
+				$.ajax({
+					
+					type:"post"
+					, url:"/user/edit"
+					, data:{"email":email, "password":password, "userName":userName, "phoneNumber":phoneNumber, "address": address}
+					, success:function(data){
+						if(data.result == "success"){
+							location.href="/user/edit/view";
+						} else {
+							alert("회원정보 수정실패");
+						}
+					}
+					, error:function(){
+						alert("회원정보 수정에러");
+					}
+					
+					
+				});
+				
+				
+				
+				
+				
+			});
+			
+			
+		});
 	
 	
 	
