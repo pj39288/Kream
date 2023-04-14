@@ -43,33 +43,27 @@
 			<div class="create-box text-center d-flex justify-content-between">
 			
 			<div>
-				<img src="" alt="제품 사진">
+				<input type="file" id="fileInput">
 				
-			<br>
+				<h5>카테고리 입력</h5>	
+				<select id="categoryInput">
+					<option value="신발">신발</option>
+					<option value="아우터">아우터</option>
+					<option value="가방">가방</option>
+					<option value="지갑">지갑</option>
+					<option value="시계">시계</option>
+					<option value="" selected>select one</option>
+				</select>
+				<br>
 				
-			
-			<h5>카테고리 입력</h5>	
-			<select>
-				<option>신발</option>
-				<option>아우터</option>
-				<option>가방</option>
-				<option>지갑</option>
-				<option>시계</option>
-				<option selected>select one</option>
-			</select>
-			
-			<br>
-			
-			
-			
-			<h5>성별 입력</h5>	
-			<select>
-				<option>남성</option>
-				<option>여성</option>
-				<option>키즈</option>
-				<option selected>select one</option>
-			</select>
-				
+
+				<h5>성별 입력</h5>	
+				<select id="genderInput">
+					<option value="남성">남성</option>
+					<option value="여성">여성</option>
+					<option value="키즈">키즈</option>
+					<option value="" selected>select one</option>
+				</select>
 			
 			</div>
 			
@@ -138,10 +132,69 @@
 	
 	</div>
 	
-	<section>
+	<script>
+		$(document).ready(function(){
+			
+			$("createBtn").on("click", function(){
+				
+				let brand = $("#brandInput").val();
+				let modelNumber = $("#modelNumberInput").val();
+				let modelEnglishName = $("#modelEnglishNameInput").val();
+				let modelKoreanName = $("#modelKoreanNameInput").val();
+				let launchDate = $("#launchDateInput").val();
+				let mainColor = $("#mainColorInput").val();
+				let launchPrice = $("#launchPriceInput").val();
+				let file = $("#fileInput")[0];
+				let category = $("#categoryInput").val();
+				let gender = $("#genderInput").val();
+				
+				if(brand == ""){
+					alert("브랜드를 입력하세요");
+					return;
+				}
+				if(modelNumber == ""){
+					alert("모델 넘버를 입력하세요");
+					return;
+				}
+				if(modelEnglishName == ""){
+					alert("모델 영문명을 입력하세요");
+					return;
+				}
+				if(modelKoreanName == ""){
+					alert("모델 한글명을 입력하세요");
+					return;
+				}
+				if(launchDate == ""){
+					alert("발매일을 입력하세요");
+					return;
+				}
+				if(mainColor == ""){
+					alert("메인컬러를 입력하세요");
+					return;
+				}
+				if(launchPrice == ""){
+					alert("발매가를 입력하세요");
+					return;
+				}
+				if(file.files.length == 0){
+					alert("사진을 업로드하세요");
+					return;
+				}
+				if(category == ""){
+					alert("카테고리를 선택하세요");
+					return;
+				}
+				if(gender == ""){
+					alert("성별을 선택하세요");
+					return;
+				}
+				
+				
+			});
+			
+		});
 	
-	
-	</section>
+	</script>
 
 </body>
 </html>

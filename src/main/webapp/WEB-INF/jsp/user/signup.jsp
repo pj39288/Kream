@@ -124,7 +124,7 @@
 					, data:{"is_manager":is_manager, "email":email, "password":password, "userName":userName}
 					, success:function(data){
 						if(data.result == "success"){
-							location.href="/user/signup/view";
+							location.href="/user/login/view";
 						} else {
 							alert("회원가입 실패");
 						}

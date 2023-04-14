@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.doongie.kream.model.dao.ModelDAO">
+	
+	<insert id="insertModel" parameterType="map">
+	
+		INSERT INTO
+			`model`
+		(
+			`brand`
+			, `modelNumber`
+			, `modelEnglishName`
+			, `modelKoreanName`
+			, `launchDate`
+			, `mainColor`
+			, `launchPrice`
+			, `imagePath`
+			, `category`
+			, `gender`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUE
+		(
+			#{brand}
+			, #{modelNumber}
+			, #{modelEnglishName}
+			, #{modelKoreanName}
+			, #{launchDate}
+			, #{mainColor}
+			, #{launchPrice}
+			, #{imagePath}
+			, #{category}
+			, #{gender}
+			, now()
+			, now()
+		)
+	
+	</insert>
+
+</mapper>
