@@ -28,8 +28,8 @@ public class ModelRestController {
 			, @RequestParam("modelNumber") String modelNumber
 			, @RequestParam("modelEnglishName") String modelEnglishName
 			, @RequestParam("modelKoreanName") String modelKoreanName
-			, @RequestParam("launchDate") Date launchDate
-			, @RequestParam("maincolor") String mainColor
+			, @RequestParam(value="launchDate", required=false) Date launchDate
+			, @RequestParam("mainColor") String mainColor
 			, @RequestParam("launchPrice") int launchPrice
 			, @RequestParam(value="file", required=true) MultipartFile file
 			, @RequestParam("category") String category

@@ -30,7 +30,7 @@
 					<li class="nav-item"><a href="#" class="nav-link main-link">HOME</a></li>
 					<li class="nav-item"><a href="#" class="nav-link main-link">STYLE</a></li>
 					<li class="nav-item"><a href="#" class="nav-link main-link">SHOP</a></li>
-					<li class="nav-item"><a href="#" class="nav-link main-link">MY</a></li>
+					<li class="nav-item"><a href="/user/edit/view" class="nav-link main-link">MY</a></li>
 				</ul>
 			</nav>
 		
@@ -62,6 +62,7 @@
 					<option value="남성">남성</option>
 					<option value="여성">여성</option>
 					<option value="키즈">키즈</option>
+					<option value="모든 성별">모든 성별</option>
 					<option value="" selected>select one</option>
 				</select>
 			
@@ -89,29 +90,30 @@
 							
 					<div class="d-flex">
 						<h5>모델번호</h5>
-						<input type="text" id="modelNumber" placeholder="제품 모델번호를 입력하세요">						
+						<input type="text" id="modelNumberInput" placeholder="제품 모델번호를 입력하세요">						
 					</div>	
 					<br>
 							
 					<div class="d-flex">
 						<h5>출시일</h5>
-						<input type="text" id="launchDate" placeholder="제품 출시일을 입력하세요">						
+						<input type="text" id="launchDateInput" placeholder="제품 출시일을 입력하세요">						
 					</div>
 					<br>
 					
 					<div class="d-flex">
 						<h5>컬러</h5>
-						<input type="text" id="mainColor" placeholder="제품 컬러를 입력하세요">						
+						<input type="text" id="mainColorInput" placeholder="제품 컬러를 입력하세요">						
 					</div>
 					<br>
 					
 					<div class="d-flex">
 						<h5>발매가</h5>
-						<input type="text" id="launchPrice" placeholder="제품 발매가를 입력하세요">		
+						<input type="text" id="launchPriceInput" placeholder="제품 발매가를 입력하세요">		
 					</div>
 					<br>
 					
-					<button type="button" id="createBtn">저장</button>				
+					<button type="button" id="createBtn">저장</button>	
+								
 				</div>
 			
 			
@@ -135,7 +137,7 @@
 	<script>
 		$(document).ready(function(){
 			
-			$("createBtn").on("click", function(){
+			$("#createBtn").on("click", function(){
 				
 				let brand = $("#brandInput").val();
 				let modelNumber = $("#modelNumberInput").val();
@@ -164,18 +166,18 @@
 					alert("모델 한글명을 입력하세요");
 					return;
 				}
-				if(launchDate == ""){
-					alert("발매일을 입력하세요");
-					return;
-				}
-				if(mainColor == ""){
-					alert("메인컬러를 입력하세요");
-					return;
-				}
-				if(launchPrice == ""){
-					alert("발매가를 입력하세요");
-					return;
-				}
+				//if(launchDate == ""){
+				//	alert("발매일을 입력하세요");
+				//	return;
+				//}
+				//if(mainColor == ""){
+				//	alert("메인컬러를 입력하세요");
+				//	return;
+				//}
+				//if(launchPrice == ""){
+				//	alert("발매가를 입력하세요");
+				//	return;
+				//}
 				if(file.files.length == 0){
 					alert("사진을 업로드하세요");
 					return;
@@ -188,6 +190,43 @@
 					alert("성별을 선택하세요");
 					return;
 				}
+				
+				var formData = new FormData();
+				formData.append("brand", brand);
+				formData.append("modelNumber", modelNumber);
+				formData.append("modelEnglishName", modelEnglishName);
+				formData.append("modelKoreanName", modelKoreanName);
+				if(launchDate == ""){
+					formData.append("launchDate", null);
+				} else {
+					formData.append("launchDate", launchDate);					
+				}
+				formData.append("mainColor", mainColor);
+				formData.append("launchPrice", launchPrice);
+				formData.append("file", file.files[0]);
+				formData.append("category", category);
+				formData.append("gender", gender);
+				
+				$.ajax({
+					
+					type:"post"
+					, url:"/model/create"
+					, data:formData
+					, enctype:"multipart/form-data"
+					, processData:false
+					, contentType:false
+					, success:function(data){
+						if(data.result == "success"){
+							location.reload();
+						} else {
+							alert("업로드 실패");
+						}
+					}
+					, error:function(){
+						alert("업로드 에러")
+					}
+					
+				});
 				
 				
 			});

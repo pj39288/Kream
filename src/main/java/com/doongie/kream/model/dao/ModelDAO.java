@@ -14,7 +14,7 @@ public interface ModelDAO {
 			, @Param("modelEnglishName") String modelEnglishName
 			, @Param("modelKoreanName") String modelKoreanName
 			, @Param("launchDate") Date launchDate
-			, @Param("mailColor") String mainColor
+			, @Param("mainColor") String mainColor
 			, @Param("launchPrice") int launchPrice
 			, @Param("imagePath") String imagePath
 			, @Param("category") String category
