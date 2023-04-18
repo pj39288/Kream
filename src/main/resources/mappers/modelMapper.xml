@@ -39,5 +39,26 @@
 		)
 	
 	</insert>
+	
+	<select id="selectModelList" resultType="com.doongie.kream.model.model.Model">
+	
+		SELECT 
+			`id`
+			,`brand`
+			, `modelNumber`
+			, `modelEnglishName`
+			, `modelKoreanName`
+			, `launchDate`
+			, `mainColor`
+			, `launchPrice`
+			, `imagePath`
+			, `category`
+			, `gender`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`model`
+
+	</select>
 
 </mapper>

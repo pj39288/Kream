@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,7 @@ public class ModelRestController {
 			, @RequestParam("modelNumber") String modelNumber
 			, @RequestParam("modelEnglishName") String modelEnglishName
 			, @RequestParam("modelKoreanName") String modelKoreanName
-			, @RequestParam(value="launchDate", required=false) Date launchDate
+			, @RequestParam(value="launchDate", required=false) @DateTimeFormat(pattern = "yyyy/MM/dd") Date launchDate
 			, @RequestParam("mainColor") String mainColor
 			, @RequestParam("launchPrice") int launchPrice
 			, @RequestParam(value="file", required=true) MultipartFile file

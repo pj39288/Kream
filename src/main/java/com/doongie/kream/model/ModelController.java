@@ -12,7 +12,12 @@ public class ModelController {
 	public String modelInput() {
 		
 		return "/model/create";
+	}
+	
+	@GetMapping("/list/view")
+	public String modelList() {
 		
+		return "/model/list";
 	}
 
 }

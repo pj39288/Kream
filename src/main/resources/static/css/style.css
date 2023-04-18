@@ -37,6 +37,16 @@ nav{
 	width: 800px;
 }
 
+.contents > .list-box{
+	height:1000px;
+	width:1200px;
+}
+
+filter{
+	height:500px;
+	width:200px;
+}
+
 .image-icon-size{
 	font-size:25px;
 	color:green;

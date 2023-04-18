@@ -1,6 +1,7 @@
 package com.doongie.kream.model.bo;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.doongie.kream.common.FileManagerService;
 import com.doongie.kream.model.dao.ModelDAO;
+import com.doongie.kream.model.model.Model;
 
 @Service
 public class ModelBO {
@@ -36,8 +38,11 @@ public class ModelBO {
 		String imagePath = FileManagerService.saveFile(userId, file);		
 		
 		return modelDAO.insertModel(brand, modelNumber, modelEnglishName, modelKoreanName, launchDate, mainColor, launchPrice, imagePath, category, gender);
-		
-		
+	}
+	
+	public List<Model> getModelList() {
+		 
+		return modelDAO.selectModelList();
 	}
 
 }

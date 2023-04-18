@@ -166,6 +166,8 @@
 					alert("모델 한글명을 입력하세요");
 					return;
 				}
+				// table에 NOT NULL 조건에 해당되지 않으므로 주석처리
+				
 				//if(launchDate == ""){
 				//	alert("발매일을 입력하세요");
 				//	return;
@@ -196,10 +198,13 @@
 				formData.append("modelNumber", modelNumber);
 				formData.append("modelEnglishName", modelEnglishName);
 				formData.append("modelKoreanName", modelKoreanName);
-				if(launchDate == ""){
-					formData.append("launchDate", null);
-				} else {
-					formData.append("launchDate", launchDate);					
+				//if(launchDate == ""){
+				//	formData.append("launchDate", null);
+				//} else {
+				//	formData.append("launchDate", launchDate);					
+				//}
+				if(launchDate != ""){
+					formData.append("launchDate", launchDate);
 				}
 				formData.append("mainColor", mainColor);
 				formData.append("launchPrice", launchPrice);
