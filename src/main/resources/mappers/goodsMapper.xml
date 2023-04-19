@@ -2,9 +2,9 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.doongie.kream.model.dao.ModelDAO">
+<mapper namespace="com.doongie.kream.goods.dao.GoodsDAO">
 	
-	<insert id="insertModel" parameterType="map">
+	<insert id="insertGoods" parameterType="map">
 	
 		INSERT INTO
 			`model`
@@ -40,7 +40,7 @@
 	
 	</insert>
 	
-	<select id="selectModelList" resultType="com.doongie.kream.model.model.Model">
+	<select id="selectGoodsList" resultType="com.doongie.kream.goods.model.Goods">
 	
 		SELECT 
 			`id`

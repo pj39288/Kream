@@ -1,8 +1,8 @@
-package com.doongie.kream.model.model;
+package com.doongie.kream.goods.model;
 
 import java.util.Date;
 
-public class Model {
+public class Goods {
 	
 	private int id;
 	private String brand;

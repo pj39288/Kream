@@ -1,4 +1,4 @@
-package com.doongie.kream.model.dao;
+package com.doongie.kream.goods.dao;
 
 import java.util.Date;
 import java.util.List;
@@ -6,12 +6,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import com.doongie.kream.model.model.Model;
+import com.doongie.kream.goods.model.Goods;
 
 @Repository
-public interface ModelDAO {
+public interface GoodsDAO {
 	
-	public int insertModel(
+	public int insertGoods(
 			@Param("brand") String brand
 			, @Param("modelNumber") String modelNumber
 			, @Param("modelEnglishName") String modelEnglishName
@@ -23,6 +23,6 @@ public interface ModelDAO {
 			, @Param("category") String category
 			, @Param("gender") String gender);
 	
-	public List<Model> selectModelList();
+	public List<Goods> selectGoodsList();
 
 }

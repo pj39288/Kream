@@ -37,15 +37,17 @@ nav{
 	width: 800px;
 }
 
-.contents > .list-box{
-	height:1000px;
-	width:1200px;
-}
-
-filter{
+.contents > .filter{
 	height:500px;
 	width:200px;
 }
+
+.contents > .list-box{
+	height:1000px;
+	width:1000px;
+	background-color:#dddddd;
+}
+
 
 .image-icon-size{
 	font-size:25px;

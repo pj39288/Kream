@@ -1,4 +1,4 @@
-package com.doongie.kream.model.bo;
+package com.doongie.kream.goods.bo;
 
 import java.util.Date;
 import java.util.List;
@@ -10,17 +10,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.doongie.kream.common.FileManagerService;
-import com.doongie.kream.model.dao.ModelDAO;
-import com.doongie.kream.model.model.Model;
+import com.doongie.kream.goods.dao.GoodsDAO;
+import com.doongie.kream.goods.model.Goods;
 
 @Service
-public class ModelBO {
+public class GoodsBO {
 	
 	@Autowired
-	private ModelDAO modelDAO;
+	private GoodsDAO goodsDAO;
 	
 	// BO는 file을 받아서 DAO에 imagePath를 전달한다
-	public int addModel(
+	public int addGoods(
 			String brand
 			, String modelNumber
 			, String modelEnglishName
@@ -37,12 +37,12 @@ public class ModelBO {
 		
 		String imagePath = FileManagerService.saveFile(userId, file);		
 		
-		return modelDAO.insertModel(brand, modelNumber, modelEnglishName, modelKoreanName, launchDate, mainColor, launchPrice, imagePath, category, gender);
+		return goodsDAO.insertGoods(brand, modelNumber, modelEnglishName, modelKoreanName, launchDate, mainColor, launchPrice, imagePath, category, gender);
 	}
 	
-	public List<Model> getModelList() {
+	public List<Goods> getGoodsList() {
 		 
-		return modelDAO.selectModelList();
+		return goodsDAO.selectGoodsList();
 	}
 
 }

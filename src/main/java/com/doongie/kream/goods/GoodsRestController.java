@@ -1,4 +1,4 @@
-package com.doongie.kream.model;
+package com.doongie.kream.goods;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -14,17 +14,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.doongie.kream.model.bo.ModelBO;
+import com.doongie.kream.goods.bo.GoodsBO;
+
 
 @RestController
 @RequestMapping("/model")
-public class ModelRestController {
+public class GoodsRestController {
 	
 	@Autowired	
-	private ModelBO modelBO;
+	private GoodsBO goodsBO;
 	
 	@PostMapping("/create")
-	public Map<String, String> modelCreate(
+	public Map<String, String> goodsCreate(
 			@RequestParam("brand") String brand
 			, @RequestParam("modelNumber") String modelNumber
 			, @RequestParam("modelEnglishName") String modelEnglishName
@@ -39,7 +40,7 @@ public class ModelRestController {
 		
 		Map<String, String> resultMap = new HashMap<>();
 		
-		int count = modelBO.addModel(brand, modelNumber, modelEnglishName, modelKoreanName, launchDate, mainColor, launchPrice, file, category, gender, session);
+		int count = goodsBO.addGoods(brand, modelNumber, modelEnglishName, modelKoreanName, launchDate, mainColor, launchPrice, file, category, gender, session);
 		
 		if(count == 1) {
 			resultMap.put("result", "success");

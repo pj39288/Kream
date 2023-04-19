@@ -40,7 +40,7 @@
 		
 		<section class="contents">
 		
-			<div class="list-box text-center d-flex justify-content-between">
+			<div class="text-center d-flex justify-content-between">
 			
 				<nav>
 					<ul class="nav nav-fill">
@@ -55,39 +55,44 @@
 				
 				<hr>
 				
-				<div>
+			</div>
 				
-					<filter>
-						<hr>
-						
-						<h5>성별</h5>
-						<input type="checkbox" id="checkboxInput"> 남성 
-						<br>
-						<input type="checkbox" id="checkboxInput"> 여성
-						<br>
-						<input type="checkbox" id="checkboxInput"> 키즈
-						<br>
-						<input type="checkbox" id="checkboxInput"> 전체보기
+				
+			<div class="d-flex">
+			
+				<div class="filter">
+					<hr>
+					
+					<h5>성별</h5>
+					<input type="checkbox" id="checkboxInput"> 남성 
+					<br>
+					<input type="checkbox" id="checkboxInput"> 여성
+					<br>
+					<input type="checkbox" id="checkboxInput"> 키즈
+					<br>
+					<input type="checkbox" id="checkboxInput"> 전체보기
 
-						<hr>
-				
-					</filter>
-					
-					
-					<div>
-					
-					
-					</div>
-				
-				
+					<hr>
+			
 				</div>
 				
-			
-
-			
 				
-
-			
+				<div class="list-box d-flex">
+				
+					<c:forEach var="goods" items="${goodsList}">
+					
+						<div>
+							<img width="100%" src="${goods.imagePath }"> <br>
+							${goods.brand } <br>
+							${goods.modelEnglishName } <br>
+							${goods.modelKoreanName } <br>
+						</div>
+					
+					
+					</c:forEach>
+	
+				</div>
+				
 			</div>
 		
 		</section>
