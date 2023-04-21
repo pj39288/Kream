@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.doongie.kream.goods.bo.GoodsBO;
 import com.doongie.kream.goods.model.Goods;
@@ -25,9 +26,11 @@ public class GoodslController {
 	}
 	
 	@GetMapping("/list/view")
-	public String goodsList(Model model) {
+	public String goodsList(
+			@RequestParam(value="category", required=false) String category
+			, Model model) {
 		
-		List<Goods> goodsList =  goodsBO.getGoodsList();
+		List<Goods> goodsList =  goodsBO.getGoodsList(category);
 		
 		model.addAttribute("goodsList", goodsList);
 		

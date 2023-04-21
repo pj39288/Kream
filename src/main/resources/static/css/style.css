@@ -37,15 +37,20 @@ nav{
 	width: 800px;
 }
 
-.contents > .filter{
+.filter{
 	height:500px;
 	width:200px;
 }
 
-.contents > .list-box{
+.list-box{
 	height:1000px;
 	width:1000px;
 	background-color:#dddddd;
+}
+
+.list-box > .content{
+	height:500px;
+	width:250px;
 }
 
 

@@ -58,6 +58,8 @@
 			, `updatedAt`
 		FROM
 			`model`
+		WHERE 
+			`category` = #{category}		
 
 	</select>
 

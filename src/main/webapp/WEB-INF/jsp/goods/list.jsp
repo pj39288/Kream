@@ -44,12 +44,12 @@
 			
 				<nav>
 					<ul class="nav nav-fill">
-						<li class="nav-item"><a href="#" class="nav-link main-link">전체보기</a></li>
-						<li class="nav-item"><a href="#" class="nav-link main-link">신발</a></li>
-						<li class="nav-item"><a href="#" class="nav-link main-link">아우터</a></li>
-						<li class="nav-item"><a href="#" class="nav-link main-link">가방</a></li>
-						<li class="nav-item"><a href="#" class="nav-link main-link">지갑</a></li>
-						<li class="nav-item"><a href="#" class="nav-link main-link">시계</a></li>
+						<li class="nav-item"><a href="/goods/list.jsp" class="nav-link main-link">전체</a></li>
+						<li class="nav-item"><a href="/goods/list.jsp?category=신발" class="nav-link main-link">신발</a></li>
+						<li class="nav-item"><a href="/goods/list.jsp?category=아우터" class="nav-link main-link">아우터</a></li>
+						<li class="nav-item"><a href="/goods/list.jsp?category=가방" class="nav-link main-link">가방</a></li>
+						<li class="nav-item"><a href="/goods/list.jsp?category=지갑" class="nav-link main-link">지갑</a></li>
+						<li class="nav-item"><a href="/goods/list.jsp?category=시계" class="nav-link main-link">시계</a></li>
 					</ul>
 				</nav>
 				
@@ -77,19 +77,19 @@
 				</div>
 				
 				
-				<div class="list-box d-flex">
-				
-					<c:forEach var="goods" items="${goodsList}">
+				<div class="list-box d-flex flex-wrap">
 					
-						<div>
-							<img width="100%" src="${goods.imagePath }"> <br>
-							${goods.brand } <br>
-							${goods.modelEnglishName } <br>
-							${goods.modelKoreanName } <br>
-						</div>
-					
-					
-					</c:forEach>
+						<c:forEach var="goods" items="${goodsList}">
+						
+							<div class="content">
+								<img width="100%" src="${goods.imagePath}"> <br>
+								${goods.brand} <br>
+								${goods.modelEnglishName} <br>
+								${goods.modelKoreanName} <br>
+							</div>
+						
+						
+						</c:forEach>					
 	
 				</div>
 				

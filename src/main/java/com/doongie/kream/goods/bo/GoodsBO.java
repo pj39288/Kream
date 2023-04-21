@@ -40,9 +40,12 @@ public class GoodsBO {
 		return goodsDAO.insertGoods(brand, modelNumber, modelEnglishName, modelKoreanName, launchDate, mainColor, launchPrice, imagePath, category, gender);
 	}
 	
-	public List<Goods> getGoodsList() {
-		 
-		return goodsDAO.selectGoodsList();
+	
+	
+	public List<Goods> getGoodsList(String category) {
+		
+	
+		return goodsDAO.selectGoodsList(category);
 	}
 
 }
