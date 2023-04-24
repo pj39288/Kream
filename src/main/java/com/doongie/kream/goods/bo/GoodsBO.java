@@ -42,10 +42,11 @@ public class GoodsBO {
 	
 	
 	
-	public List<Goods> getGoodsList(String category) {
+	public List<Goods> getGoodsList(String category, String gender) {
 		
+
 	
-		return goodsDAO.selectGoodsList(category);
+		return goodsDAO.selectGoodsList(category, gender);
 	}
 
 }

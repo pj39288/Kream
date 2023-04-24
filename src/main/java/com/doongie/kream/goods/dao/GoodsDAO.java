@@ -23,6 +23,8 @@ public interface GoodsDAO {
 			, @Param("category") String category
 			, @Param("gender") String gender);
 	
-	public List<Goods> selectGoodsList(@Param("category") String category);
+	public List<Goods> selectGoodsList(
+			@Param("category") String category
+			, @Param("gender") String gender);
 
 }

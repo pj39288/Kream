@@ -57,9 +57,11 @@
 			, `createdAt`
 			, `updatedAt`
 		FROM
-			`model`
-		WHERE 
-			`category` = #{category}		
+			`model` 
+		<where>
+			<if test="category != null">AND `category` = #{category}</if>	
+			<if test="gender != null">AND `gender` = #{gender}</if>			
+		</where>
 
 	</select>
 

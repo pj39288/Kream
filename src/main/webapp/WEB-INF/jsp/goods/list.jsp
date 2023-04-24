@@ -44,12 +44,12 @@
 			
 				<nav>
 					<ul class="nav nav-fill">
-						<li class="nav-item"><a href="/goods/list.jsp" class="nav-link main-link">전체</a></li>
-						<li class="nav-item"><a href="/goods/list.jsp?category=신발" class="nav-link main-link">신발</a></li>
-						<li class="nav-item"><a href="/goods/list.jsp?category=아우터" class="nav-link main-link">아우터</a></li>
-						<li class="nav-item"><a href="/goods/list.jsp?category=가방" class="nav-link main-link">가방</a></li>
-						<li class="nav-item"><a href="/goods/list.jsp?category=지갑" class="nav-link main-link">지갑</a></li>
-						<li class="nav-item"><a href="/goods/list.jsp?category=시계" class="nav-link main-link">시계</a></li>
+						<li class="nav-item"><a href="/goods/list/view" class="nav-link main-link">전체</a></li>
+						<li class="nav-item"><a href="/goods/list/view?category=신발" class="nav-link main-link">신발</a></li>
+						<li class="nav-item"><a href="/goods/list/view?category=아우터" class="nav-link main-link">아우터</a></li>
+						<li class="nav-item"><a href="/goods/list/view?category=가방" class="nav-link main-link">가방</a></li>
+						<li class="nav-item"><a href="/goods/list/view?category=지갑" class="nav-link main-link">지갑</a></li>
+						<li class="nav-item"><a href="/goods/list/view?category=시계" class="nav-link main-link">시계</a></li>
 					</ul>
 				</nav>
 				
@@ -64,14 +64,12 @@
 					<hr>
 					
 					<h5>성별</h5>
-					<input type="checkbox" id="checkboxInput"> 남성 
+					<input type="checkbox" id="checkboxMaleInput"> 남성 
 					<br>
-					<input type="checkbox" id="checkboxInput"> 여성
+					<input type="checkbox" id="checkboxFemaleInput"> 여성
 					<br>
-					<input type="checkbox" id="checkboxInput"> 키즈
+					<input type="checkbox" id="checkboxKidsInput"> 키즈
 					<br>
-					<input type="checkbox" id="checkboxInput"> 전체보기
-
 					<hr>
 			
 				</div>
@@ -106,6 +104,33 @@
 		</footer>
 	
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+			$("#checkboxMaleInput").on("click", function(){
+				
+				var url = window.location.href;
+				
+				var url2 = window.location.pathname;
+				var url3 = window.location.search;
+				
+				var url4 = "?gender=남성";
+				
+				var url5 = url2 + url3 + url4;
+				alert(url5);
+									
+				// <a href="url?category=male">어어</a>
+				
+				location.href=url5;
+			});
+			
+			
+						
+		});
+	
+	
+	
+	</script>
 
 </body>
 </html>

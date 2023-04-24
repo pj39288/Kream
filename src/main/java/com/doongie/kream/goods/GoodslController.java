@@ -28,9 +28,10 @@ public class GoodslController {
 	@GetMapping("/list/view")
 	public String goodsList(
 			@RequestParam(value="category", required=false) String category
+			,@RequestParam(value="gender", required=false) String gender
 			, Model model) {
 		
-		List<Goods> goodsList =  goodsBO.getGoodsList(category);
+		List<Goods> goodsList =  goodsBO.getGoodsList(category, gender);
 		
 		model.addAttribute("goodsList", goodsList);
 		
