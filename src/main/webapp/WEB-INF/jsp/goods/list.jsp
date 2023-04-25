@@ -79,12 +79,16 @@
 					
 						<c:forEach var="goods" items="${goodsList}">
 						
+						<a href="/goods/detail/view?modelId=${goods.id }" class="nav-link main-link">
+						
 							<div class="content">
-								<img width="100%" src="${goods.imagePath}"> <br>
+								<img width="25%" src="${goods.imagePath}"> <br>
 								${goods.brand} <br>
 								${goods.modelEnglishName} <br>
 								${goods.modelKoreanName} <br>
 							</div>
+			
+						</a>
 						
 						
 						</c:forEach>					
@@ -116,14 +120,44 @@
 				
 				var url4 = "?gender=남성";
 				
+				// 주소 이어붙여주는 과정
 				var url5 = url2 + url3 + url4;
-				alert(url5);
 									
 				// <a href="url?category=male">어어</a>
-				
 				location.href=url5;
 			});
 			
+			$("#checkboxFemaleInput").on("click", function(){
+				
+				var url = window.location.href;
+				
+				var url2 = window.location.pathname;
+				var url3 = window.location.search;
+				
+				var url4 = "?gender=여성";
+				
+				// 주소 이어붙여주는 과정
+				var url5 = url2 + url3 + url4;
+									
+				// <a href="url?category=male">어어</a>
+				location.href=url5;
+			});
+			
+			$("#checkboxKidsInput").on("click", function(){
+				
+				var url = window.location.href;
+				
+				var url2 = window.location.pathname;
+				var url3 = window.location.search;
+				
+				var url4 = "?gender=키즈";
+				
+				// 주소 이어붙여주는 과정
+				var url5 = url2 + url3 + url4;
+									
+				// <a href="url?category=male">어어</a>
+				location.href=url5;
+			});
 			
 						
 		});

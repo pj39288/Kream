@@ -64,5 +64,28 @@
 		</where>
 
 	</select>
+	
+	<select id = "selectGoods" resultType = "com.doongie.kream.goods.model.Goods">
+	
+		SELECT 
+			`id`
+			,`brand`
+			, `modelNumber`
+			, `modelEnglishName`
+			, `modelKoreanName`
+			, `launchDate`
+			, `mainColor`
+			, `launchPrice`
+			, `imagePath`
+			, `category`
+			, `gender`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`model` 
+		WHERE
+			`id` = #{id}
+		
+	</select>
 
 </mapper>

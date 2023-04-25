@@ -37,6 +37,13 @@ nav{
 	width: 800px;
 }
 
+.contents > .detail-box{
+	height:1000px;
+	width:1200px;
+	background-color:#dddddd;
+	
+}
+
 .filter{
 	height:500px;
 	width:200px;

@@ -26,5 +26,7 @@ public interface GoodsDAO {
 	public List<Goods> selectGoodsList(
 			@Param("category") String category
 			, @Param("gender") String gender);
+	
+	public Goods selectGoods(@Param("id") int id);
 
 }

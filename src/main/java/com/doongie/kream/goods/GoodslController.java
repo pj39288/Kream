@@ -37,5 +37,19 @@ public class GoodslController {
 		
 		return "/goods/list";
 	}
+	
+	
+	@GetMapping("/detail/view")
+	public String goodsDetail(
+			@RequestParam("modelId") int modelId
+			, Model model) {
+		
+		Goods goods = goodsBO.getGoodsDetail(modelId);
+		
+		model.addAttribute("goods", goods);
+		
+		return "/goods/detail";
+		
+	}
 
 }
