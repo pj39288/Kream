@@ -44,6 +44,13 @@ nav{
 	
 }
 
+.contents > .bid-box{
+	height:1000px;
+	width:1200px;
+	background-color:#dddddd;
+	
+}
+
 .filter{
 	height:500px;
 	width:200px;
@@ -55,7 +62,7 @@ nav{
 	background-color:#dddddd;
 }
 
-.list-box > .content{
+.list-box-content{
 	height:500px;
 	width:250px;
 }

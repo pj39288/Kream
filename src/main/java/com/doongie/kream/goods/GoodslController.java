@@ -51,5 +51,14 @@ public class GoodslController {
 		return "/goods/detail";
 		
 	}
+	
+	public String goodsBid(
+			@RequestParam("userId") int userId
+			, @RequestParam("modelId") int modelId
+			, @RequestParam("size") String size) {
+		
+		return "/goods/bid";
+		
+	}
 
 }

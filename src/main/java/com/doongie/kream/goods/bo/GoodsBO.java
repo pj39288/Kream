@@ -51,5 +51,6 @@ public class GoodsBO {
 		
 		return goodsDAO.selectGoods(modelId);
 	}
+	
 
 }

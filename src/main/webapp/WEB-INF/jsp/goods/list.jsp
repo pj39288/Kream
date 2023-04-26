@@ -81,8 +81,8 @@
 						
 						<a href="/goods/detail/view?modelId=${goods.id }" class="nav-link main-link">
 						
-							<div class="content">
-								<img width="25%" src="${goods.imagePath}"> <br>
+							<div class="list-box-content">
+								<img width="100%" src="${goods.imagePath}"> <br>
 								${goods.brand} <br>
 								${goods.modelEnglishName} <br>
 								${goods.modelKoreanName} <br>

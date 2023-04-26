@@ -51,6 +51,39 @@
 					${goods.modelEnglishName} <br>
 					${goods.modelKoreanName} <br>
 					
+					<br>
+					
+					<div class="d-flex justify-content-between">
+						<h7>사이즈</h7>			
+						
+						<c:choose>
+						
+							<c:when test="${goods.category eq '신발'}">
+							 ... 
+							 </c:when>
+							 
+							<c:when test="${goods.category eq '가방'}">
+								<h5>ONE SIZE</h5> 
+							 </c:when>
+							 
+							<c:when test="${goods.category eq '시계'}">
+								<h5>ONE SIZE</h5> 
+							 </c:when>
+							 
+							<c:when test="${goods.category eq '아우터'}">
+							 ... 
+							 </c:when>
+							 
+							<c:otherwise>
+							 ... 
+							 </c:otherwise>
+						</c:choose>
+					
+					
+					</div>
+	
+					<hr>
+					
 					<div class="d-flex">
 						<button type = "button">구매  즉시구매가</button>
 						
@@ -107,6 +140,50 @@
 			</div>
 		</footer>
 	
+	</div>
+	
+	
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+	  모든 사이즈
+	</button>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">사이즈</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <div class="d-flex justify-content-around">
+  	        	<button type="button">245</button>
+	        	<button type="button">250</button>
+		        <button type="button">255</button>
+	        </div>
+	        <br>
+			<div class="d-flex justify-content-around">
+	        	<button type="button">260</button>
+		        <button type="button">265</button>
+		        <button type="button">270</button>
+			</div>
+			<br>
+			<div class="d-flex justify-content-around">
+		        <button type="button">275</button>
+		        <button type="button">280</button>		
+   		        <button type="button">285</button>			
+			</div>
+			<br>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 
 </body>
