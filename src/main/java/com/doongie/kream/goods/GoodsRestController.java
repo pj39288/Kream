@@ -18,7 +18,7 @@ import com.doongie.kream.goods.bo.GoodsBO;
 
 
 @RestController
-@RequestMapping("/model")
+@RequestMapping("/goods")
 public class GoodsRestController {
 	
 	@Autowired	

@@ -25,7 +25,7 @@
 				<h1>KREAM</h1>
 			</header>
 			
-			<div>
+			<div text center>
 				<h1>입찰하기</h1>
 			</div>
 		
@@ -52,19 +52,33 @@
 				
 				</div>
 				
-				<div>
+				<div class="d-flex justify-content-around">
 				
 					<h5>즉시 구매가</h5>
 					
-				
 					<h5>즉시 판매가</h5>
 				
 				</div>
 				
-				<div>
-					<button type="button">판매 입찰</button>
-					<button type="button">즉시 판매</button>
-				</div>
+				<br>
+				
+				<c:choose>
+					<c:when test="${param.act eq '구매' }">
+						<div class="d-flex justify-content-around">
+							<button type="button" id="buyBid">구매 입찰</button>
+							<button type="button" id="buyNow">즉시 구매</button>
+						</div>					
+					</c:when>
+					
+					<c:otherwise>
+						<div class="d-flex justify-content-around">
+							<button type="button" id="sellBid">판매 입찰</button>
+							<button type="button" id="sellNow">즉시 판매</button>
+						</div>
+					</c:otherwise>
+				
+				</c:choose>
+				
 				
 				
 

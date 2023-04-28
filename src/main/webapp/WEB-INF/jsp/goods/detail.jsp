@@ -59,7 +59,23 @@
 						<c:choose>
 						
 							<c:when test="${goods.category eq '신발'}">
-							 ... 
+							
+								<c:choose>
+									<c:when test="${size eq null }">
+										<!-- Button trigger modal -->
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+										  모든 사이즈
+										</button>
+									</c:when>
+									<c:otherwise>
+										<!-- Button trigger modal -->
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+										  ${size }
+										</button> 						
+									</c:otherwise>
+									
+								</c:choose>
+													
 							 </c:when>
 							 
 							<c:when test="${goods.category eq '가방'}">
@@ -71,7 +87,10 @@
 							 </c:when>
 							 
 							<c:when test="${goods.category eq '아우터'}">
-							 ... 
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+								  모든 사이즈
+								</button>
 							 </c:when>
 							 
 							<c:otherwise>
@@ -84,11 +103,12 @@
 	
 					<hr>
 					
-					<div class="d-flex">
-						<button type = "button">구매  즉시구매가</button>
-						
-						<button type = "button">판매 즉시판매가</button>
+					<div class="d-flex justify-content-around">
 					
+					<a href="/bid/create/view?modelId=${goods.id }&act=구매&size=${param.size}"><button type = "button" id = "buyBtn">구매  즉시구매가</button></a>
+
+					<a href="/bid/create/view?modelId=${goods.id }&act=판매&size=${param.size}"><button type = "button" id = "sellBtn">판매 즉시판매가</button></a>
+						
 					</div>
 
 					<br>
@@ -143,10 +163,7 @@
 	</div>
 	
 	
-	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-	  모든 사이즈
-	</button>
+
 	
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -160,31 +177,74 @@
 	      </div>
 	      <div class="modal-body">
 	        <div class="d-flex justify-content-around">
-  	        	<button type="button">245</button>
-	        	<button type="button">250</button>
-		        <button type="button">255</button>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=245"><button type="button">245</button></a>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=250"><button type="button">250</button></a>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=255"><button type="button">255</button></a>
 	        </div>
 	        <br>
 			<div class="d-flex justify-content-around">
-	        	<button type="button">260</button>
-		        <button type="button">265</button>
-		        <button type="button">270</button>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=260"><button type="button">260</button></a>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=265"><button type="button">265</button></a>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=270"><button type="button">270</button></a>
 			</div>
 			<br>
 			<div class="d-flex justify-content-around">
-		        <button type="button">275</button>
-		        <button type="button">280</button>		
-   		        <button type="button">285</button>			
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=275"><button type="button">275</button></a>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=280"><button type="button">280</button></a>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=285"><button type="button">285</button></a>		
 			</div>
 			<br>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
+	
+	
+
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">사이즈</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <div class="d-flex justify-content-around">
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=S"><button type="button">S</button></a>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=M"><button type="button">M</button></a>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=L"><button type="button">L</button></a>
+	        </div>
+	        <br>
+			<div class="d-flex justify-content-around">
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=XL"><button type="button">XL</button></a>
+  	        	<a href="/goods/detail/view?modelId=${goods.id }&size=XXL"><button type="button">XXL</button></a>
+			</div>
+			<br>
+	      </div>
+	      <div class="modal-footer">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<script>
+
+		${".btn-primary"}.click(function(){
+			
+			var data = $(this).data()
+			
+		});
+		
+		
+		
+
+	</script>
 
 </body>
 </html>

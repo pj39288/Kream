@@ -42,23 +42,21 @@ public class GoodslController {
 	@GetMapping("/detail/view")
 	public String goodsDetail(
 			@RequestParam("modelId") int modelId
+			, @RequestParam(value="size", required=false) String size
 			, Model model) {
 		
 		Goods goods = goodsBO.getGoodsDetail(modelId);
 		
+		
+		
 		model.addAttribute("goods", goods);
+		// size는 너무 간단한 값이라서 param 어노테이션으로 바로 사용가능하다
+		// model.addAttribute("size", size);
+
 		
 		return "/goods/detail";
 		
 	}
 	
-	public String goodsBid(
-			@RequestParam("userId") int userId
-			, @RequestParam("modelId") int modelId
-			, @RequestParam("size") String size) {
-		
-		return "/goods/bid";
-		
-	}
 
 }
