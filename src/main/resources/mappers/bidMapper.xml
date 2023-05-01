@@ -5,7 +5,32 @@
 <mapper namespace="com.doongie.kream.bid.dao.BidDAO">
 
 	<insert id="insertBid" parameterType="map">
-	
+		INSERT INTO
+			`bid`
+		(
+			`userId`
+			, `modelId`
+			, `act`
+			, `price`
+			, `size`
+			, `address`
+			, `account`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUE
+		(
+			#{userId}
+			, #{modelId}
+			, #{act}
+			, #{price}
+			, #{size}
+			, #{address}
+			, #{account}
+			, now()
+			, now()
+		)
+		
 	
 	
 	</insert>

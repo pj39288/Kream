@@ -1,7 +1,5 @@
 package com.doongie.kream.bid.bo;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Service;
 
 import com.doongie.kream.bid.dao.BidDAO;
@@ -12,7 +10,7 @@ public class BidBO {
 	private BidDAO bidDAO;
 	
 	public int addBid(
-			HttpSession session
+			int userId
 			, int modelId
 			, String act
 			, int price
@@ -20,7 +18,7 @@ public class BidBO {
 			, String address
 			, String account) {
 		
-		return bidDAO.insertBid(session, modelId, act, price, size, address, account);
+		return bidDAO.insertBid(userId, modelId, act, price, size, address, account);
 		
 	}
 	

@@ -14,7 +14,7 @@ public class BidController {
 			@RequestParam("modelId") int modelId
 			, @RequestParam("act") String act
 			, @RequestParam("size") String size) {
-		
+
 		return "/goods/bid";
 	}
 

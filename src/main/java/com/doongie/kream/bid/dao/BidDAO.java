@@ -1,7 +1,5 @@
 package com.doongie.kream.bid.dao;
 
-import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +7,7 @@ import org.springframework.stereotype.Repository;
 public interface BidDAO {
 	
 	public int insertBid(
-			HttpSession session
+			@Param("userId") int userId
 			, @Param("modelId") int modelId
 			, @Param("act") String act
 			, @Param("price") int price

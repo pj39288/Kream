@@ -61,7 +61,7 @@
 							<c:when test="${goods.category eq '신발'}">
 							
 								<c:choose>
-									<c:when test="${size eq null }">
+									<c:when test="${param.size eq null }">
 										<!-- Button trigger modal -->
 										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
 										  모든 사이즈
@@ -70,7 +70,7 @@
 									<c:otherwise>
 										<!-- Button trigger modal -->
 										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-										  ${size }
+										  ${param.size }
 										</button> 						
 									</c:otherwise>
 									

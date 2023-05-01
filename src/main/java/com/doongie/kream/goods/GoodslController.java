@@ -47,13 +47,10 @@ public class GoodslController {
 		
 		Goods goods = goodsBO.getGoodsDetail(modelId);
 		
-		
-		
 		model.addAttribute("goods", goods);
 		// size는 너무 간단한 값이라서 param 어노테이션으로 바로 사용가능하다
 		// model.addAttribute("size", size);
 
-		
 		return "/goods/detail";
 		
 	}

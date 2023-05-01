@@ -80,11 +80,22 @@
 				</c:choose>
 				
 				
+				<div>
+					<h5>즉시 구매가</h5>
+					
+					<button type="button" id="buyNowBtn">즉시 구매 계속</button>
+				</div>
 				
-
-
+				
+				<div>
+					<h5>구매 희망가</h5>
+					<input type="text" id="buyBidInput" placeholder="희망가 입력">원					
+					<button type="button" id="buyBidBtn">구매 입찰 계속</button>
+				</div>			
+			
 			</div>
-		
+			
+
 
 		
 		</section>
@@ -98,6 +109,62 @@
 		</footer>
 	
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("#buyBidBtn").on("click", function(){
+				
+				
+				$.ajax({
+					
+					
+					
+					
+				});
+				
+				
+			});
+			
+			
+			
+			$("buyNowBtn").on("click", function(){
+				
+				let modelId = ${goods.id};
+				let act = 구매;
+				let price = 
+				let size = ${param.size};
+				let address = null;
+				let account = null;
+				
+				
+				$.ajax({
+					
+					type:"get"
+					, url:"/bid/create"
+					, data:{"modelId":modelId, "act":act, "price":price, "size":size, "address":address, "account":account}
+					, success:function(data){
+						if(data.result="success"){
+							location.reload();
+						} else {
+							alert("구매입찰 실패");
+						} 
+					}
+					, error:function(){
+						alert("구매입찰 에러");
+					}
+					
+					
+				});
+				
+			});
+			
+			
+		});
+	
+	
+	
+	</script>
 
 </body>
 </html>
