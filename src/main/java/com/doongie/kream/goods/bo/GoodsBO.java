@@ -19,6 +19,7 @@ public class GoodsBO {
 	@Autowired
 	private GoodsDAO goodsDAO;
 	
+	
 	// BO는 file을 받아서 DAO에 imagePath를 전달한다
 	public int addGoods(
 			String brand

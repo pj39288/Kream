@@ -37,26 +37,34 @@
 		
 			<div class="bid-box">
 			
-				<div class="d-flex">
+				<div class="d-flex justify-content-around">
 				
-					<img width="90%" src="${goods.imagePath}"> <br>				
+					<img width="20%" src="${goods.imagePath}"> <br>				
 				
 					<div>
 						${goods.brand} <br>
 						${goods.modelEnglishName} <br>
 						${goods.modelKoreanName} <br>
+						${param.size }
 
 					</div>
 					
-					<hr>
 				
 				</div>
 				
-				<div class="d-flex justify-content-around">
-				
-					<h5>즉시 구매가</h5>
+				<hr>
 					
-					<h5>즉시 판매가</h5>
+				<div class="d-flex justify-content-around">
+					
+					<div>
+						<h5>즉시 구매가</h5>
+					
+					</div>
+					
+					<div>
+						<h5>즉시 판매가</h5>
+						${bid.price} 원			
+					</div>					
 				
 				</div>
 				
@@ -65,33 +73,40 @@
 				<c:choose>
 					<c:when test="${param.act eq '구매' }">
 						<div class="d-flex justify-content-around">
-							<button type="button" id="buyBid">구매 입찰</button>
-							<button type="button" id="buyNow">즉시 구매</button>
+							<button type="button" id="buyBidBtn">구매 입찰</button>
+							<button type="button" id="buyNowBtn">즉시 구매</button>
 						</div>					
 					</c:when>
 					
 					<c:otherwise>
 						<div class="d-flex justify-content-around">
-							<button type="button" id="sellBid">판매 입찰</button>
-							<button type="button" id="sellNow">즉시 판매</button>
+							<button type="button" id="sellBidBtn">판매 입찰</button>
+							<button type="button" id="sellNowBtn">즉시 판매</button>
 						</div>
 					</c:otherwise>
 				
 				</c:choose>
 				
 				
-				<div>
-					<h5>즉시 구매가</h5>
-					
-					<button type="button" id="buyNowBtn">즉시 구매 계속</button>
+				<div class="d-flex justify-content-center">
+				
+					<div class="d-none " id="buyBid">
+						<h5>구매 희망가</h5>
+						<input type="text" id="buyBidInput" placeholder="희망가 입력">원					
+						<button type="button" id="buyBidConfirmBtn">구매 입찰 계속</button>
+					</div>			
+		
+			
+					<div id="buyMain">
+						<h5>즉시 구매가</h5>
+						
+						<button type="button" id="buyNowConfirmBtn">즉시 구매 계속</button>
+					</div>
+				
 				</div>
+	
 				
 				
-				<div>
-					<h5>구매 희망가</h5>
-					<input type="text" id="buyBidInput" placeholder="희망가 입력">원					
-					<button type="button" id="buyBidBtn">구매 입찰 계속</button>
-				</div>			
 			
 			</div>
 			
@@ -113,14 +128,53 @@
 	<script>
 		$(document).ready(function(){
 			
+			
+			$("#buyNowBtn").on("click", function(){
+				
+				$("#buyMain").removeClass("d-none");
+				$("#buyBid").addClass("d-none");
+			});
+			
+			
 			$("#buyBidBtn").on("click", function(){
+				
+				$("#buyBid").removeClass("d-none");
+				$("#buyMain").addClass("d-none");
+			});
+			
+
+			$("#buyBidConfirmBtn").on("click", function(){
+
+				let modelId = ${param.modelId};
+				let act = '${param.act}';
+				let price = $("#buyBidInput").val();
+				let size = ${param.size};
+				// let address = null;
+				// let account = null;
+				
+				if(price == ""){
+					alert("구매 희망 가격을 입력하세요");
+					return;
+				}
 				
 				
 				$.ajax({
 					
+					type:"get"
+					, url:"/bid/create"
+					, data:{"modelId":modelId, "act":act, "price":price, "size":size}
+					, success:function(data){
+						if(data.result="success"){
+							location.reload();
+						} else {
+							alert("구매입찰 실패");
+						} 
+					}
+					, error:function(){
+						alert("구매입찰 에러");
+					}
 					
-					
-					
+	
 				});
 				
 				
@@ -128,11 +182,11 @@
 			
 			
 			
-			$("buyNowBtn").on("click", function(){
+			$("buyNowConfirmBtn").on("click", function(){
 				
-				let modelId = ${goods.id};
-				let act = 구매;
-				let price = 
+				let modelId = ${param.modelId};
+				let act = '${param.act}';
+				let price = 15555;
 				let size = ${param.size};
 				let address = null;
 				let account = null;

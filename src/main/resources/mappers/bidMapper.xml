@@ -34,6 +34,30 @@
 	
 	
 	</insert>
+	
+	<select id="selectBid" parameterType="map" resultType="com.doongie.kream.bid.model.Bid">
+		
+		SELECT 
+			`id`
+			, `userId`
+			, `modelId`
+			, `act`
+			, `price`
+			, `size`
+			, `address`
+			, `account`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`bid`
+		WHERE
+			`modelId` = #{modelId}
+		AND
+			`act` = #{act}
+		AND 
+			`size` = #{size}
+		
+	</select>
 
 
 </mapper>

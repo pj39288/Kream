@@ -5,17 +5,21 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doongie.kream.bid.bo.BidBO;
+import com.doongie.kream.bid.model.Bid;
 
 @RestController
 @RequestMapping("/bid")
 public class BidRestController {
 	
+	@Autowired
 	private BidBO bidBO;
 	
 	@GetMapping("/create")
@@ -25,8 +29,8 @@ public class BidRestController {
 			, @RequestParam("act") String act
 			, @RequestParam("price") int price
 			, @RequestParam("size") String size
-			, @RequestParam("address") String address
-			, @RequestParam("account") String account) {
+			, @RequestParam(value = "address", required=false) String address
+			, @RequestParam(value = "account", required=false) String account) {
 		
 		int userId = (Integer) session.getAttribute("id");
 				
@@ -42,5 +46,7 @@ public class BidRestController {
 		
 		return resultMap;
 	}
+	
+
 
 }
