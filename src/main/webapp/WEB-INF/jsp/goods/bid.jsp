@@ -58,6 +58,7 @@
 					
 					<div>
 						<h5>즉시 구매가</h5>
+						${bid.price }원
 					
 					</div>
 					
@@ -87,23 +88,53 @@
 				
 				</c:choose>
 				
+				<hr>		
 				
-				<div class="d-flex justify-content-center">
-				
-					<div class="d-none " id="buyBid">
-						<h5>구매 희망가</h5>
-						<input type="text" id="buyBidInput" placeholder="희망가 입력">원					
-						<button type="button" id="buyBidConfirmBtn">구매 입찰 계속</button>
-					</div>			
-		
-			
-					<div id="buyMain">
-						<h5>즉시 구매가</h5>
+				<c:choose>
+					<c:when test="${param.act eq '구매' }">
+						<div class="d-flex justify-content-center">
 						
-						<button type="button" id="buyNowConfirmBtn">즉시 구매 계속</button>
-					</div>
+							<div class="d-none " id="buyBid">
+								<h5>구매 희망가</h5>
+								<input type="text" id="buyBidInput" placeholder="희망가 입력">원					
+								<button type="button" id="buyBidConfirmBtn">구매 입찰 계속</button>
+							</div>			
 				
-				</div>
+					
+							<div id="buyMain">
+								<h5>즉시 구매가</h5>
+								
+								<button type="button" id="buyNowConfirmBtn">즉시 구매 계속</button>
+							</div>
+						
+						</div>
+					
+					</c:when>
+					
+					<c:otherwise>
+						<div class="d-flex justify-content-center">
+						
+							<div class="d-none " id="sellBid">
+								<h5>판매 희망가</h5>
+								<input type="text" id="sellBidInput" placeholder="희망가 입력">원					
+								<button type="button" id="sellBidConfirmBtn">판매 입찰 계속</button>
+							</div>			
+				
+					
+							<div id="sellMain">
+								<h5>즉시 판매가</h5>
+								
+								<button type="button" id="sellNowConfirmBtn">즉시 판매 계속</button>
+							</div>
+						
+						</div>
+					
+					</c:otherwise>
+				
+				
+				</c:choose>		
+				
+				
 	
 				
 				
@@ -143,6 +174,20 @@
 			});
 			
 
+			$("#sellNowBtn").on("click", function(){
+				
+				$("#sellMain").removeClass("d-none");
+				$("#sellBid").addClass("d-none");
+			});
+			
+			
+			$("#sellBidBtn").on("click", function(){
+				
+				$("#sellBid").removeClass("d-none");
+				$("#sellMain").addClass("d-none");
+			});
+			
+
 			$("#buyBidConfirmBtn").on("click", function(){
 
 				let modelId = ${param.modelId};
@@ -167,11 +212,11 @@
 						if(data.result="success"){
 							location.reload();
 						} else {
-							alert("구매입찰 실패");
+							alert("구매 입찰 실패");
 						} 
 					}
 					, error:function(){
-						alert("구매입찰 에러");
+						alert("구매 입찰 에러");
 					}
 					
 	
@@ -201,11 +246,84 @@
 						if(data.result="success"){
 							location.reload();
 						} else {
-							alert("구매입찰 실패");
+							alert("즉시 구매 실패");
 						} 
 					}
 					, error:function(){
-						alert("구매입찰 에러");
+						alert("즉시 구매 에러");
+					}
+					
+					
+				});
+				
+			});
+			
+			
+			
+
+			$("#sellBidConfirmBtn").on("click", function(){
+
+				let modelId = ${param.modelId};
+				let act = '${param.act}';
+				let price = $("#sellBidInput").val();
+				let size = ${param.size};
+				// let address = null;
+				// let account = null;
+				
+				if(price == ""){
+					alert("판매 희망 가격을 입력하세요");
+					return;
+				}
+				
+				
+				$.ajax({
+					
+					type:"get"
+					, url:"/bid/create"
+					, data:{"modelId":modelId, "act":act, "price":price, "size":size}
+					, success:function(data){
+						if(data.result="success"){
+							location.reload();
+						} else {
+							alert("판매 입찰 실패");
+						} 
+					}
+					, error:function(){
+						alert("판매 입찰 에러");
+					}
+					
+	
+				});
+				
+				
+			});
+			
+			
+			
+			$("sellNowConfirmBtn").on("click", function(){
+				
+				let modelId = ${param.modelId};
+				let act = '${param.act}';
+				let price = 15555;
+				let size = ${param.size};
+				// let address = null;
+				// let account = null;
+				
+				
+				$.ajax({
+					
+					type:"get"
+					, url:"/bid/create"
+					, data:{"modelId":modelId, "act":act, "price":price, "size":size}
+					, success:function(data){
+						if(data.result="success"){
+							location.reload();
+						} else {
+							alert("즉시 판매 실패");
+						} 
+					}
+					, error:function(){
+						alert("즉시 판매 에러");
 					}
 					
 					
