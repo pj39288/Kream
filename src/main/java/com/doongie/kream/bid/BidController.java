@@ -29,11 +29,16 @@ public class BidController {
 			, @RequestParam("size") String size
 			, Model model) {
 		
-		Bid bid = bidBO.getBid(modelId, act, size);
 		
-		model.addAttribute("bid", bid);
+		Bid bidBuy = bidBO.getBid(modelId, "구매", size);		
 		
+		Bid bidSell = bidBO.getBid(modelId, "판매", size);
 		
+		model.addAttribute("bidBuy", bidBuy);
+		
+		model.addAttribute("bidSell", bidSell);
+		
+	
 		Goods goods = goodsBO.getGoodsDetail(modelId);
 		
 		model.addAttribute("goods", goods);

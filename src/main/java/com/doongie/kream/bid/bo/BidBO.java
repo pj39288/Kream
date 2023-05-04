@@ -33,10 +33,23 @@ public class BidBO {
 			int modelId
 			, String act
 			, String size) {
-		
+				
 		return bidDAO.selectBid(modelId, act, size);
-
 	}
+	
+	
+	public int addDeal(		
+			int buyerId
+			, int sellerId
+			, int modelId
+			, int price
+			, String size) {
+		
+		bidDAO.deleteBid(modelId, price, size);
+		
+		return bidDAO.insertDeal(buyerId, sellerId, modelId, price, size);
+	}
+	
 	
 
 }

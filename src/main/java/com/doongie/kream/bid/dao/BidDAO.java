@@ -22,5 +22,18 @@ public interface BidDAO {
 			, @Param("act") String act
 			, @Param("size") String size);
 	
+	public int insertDeal(		
+			@Param("buyerId") int buyerId
+			, @Param("sellerId") int sellerId
+			, @Param("modelId") int modelId
+			, @Param("price") int price
+			, @Param("size") String size);
+	
+	public int deleteBid(
+			@Param("modelId") int modelId
+			, @Param("price") int price
+			, @Param("size") String size);
+	
+	
 
 }

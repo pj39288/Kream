@@ -60,6 +60,48 @@
 		<if test="act == '판매'" >ORDER BY `price` ASC LIMIT 1</if>
 		
 	</select>
+	
+	
+	
+	<insert id="insertDeal" parameterType="map">
+		INSERT INTO
+			`deal`
+		(
+			`buyerId`
+			, `sellerId`
+			, `modelId`
+			, `price`
+			, `size`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUE
+		(
+			#{buyerId}
+			, #{sellerId}
+			, #{modelId}
+			, #{price}
+			, #{size}
+			, now()
+			, now()
+		)
+	
+	</insert>
+	
+	<delete id="deleteBid" parameterType="map">
+		DELETE FROM
+			`bid`
+		WHERE 
+			`modelId` = #{modelId}
+		AND
+			`price` = #{price}
+		AND 
+			`size` = #{size}
+	
+	
+	</delete>
+	
+
 
 
 </mapper>

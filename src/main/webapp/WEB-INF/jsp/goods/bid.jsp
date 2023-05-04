@@ -58,13 +58,13 @@
 					
 					<div>
 						<h5>즉시 구매가</h5>
-						${bid.price }원
+						${bidSell.price }원
 					
 					</div>
 					
 					<div>
 						<h5>즉시 판매가</h5>
-						${bid.price} 원			
+						${bidBuy.price} 원			
 					</div>					
 				
 				</div>
@@ -227,21 +227,22 @@
 			
 			
 			
-			$("buyNowConfirmBtn").on("click", function(){
+			$("#buyNowConfirmBtn").on("click", function(){
 				
 				let modelId = ${param.modelId};
 				let act = '${param.act}';
-				let price = 15555;
+				let price = ${bidSell.price};
 				let size = ${param.size};
-				let address = null;
-				let account = null;
-				
+				// let address = null;
+				// let account = null;
+				let userId = ${bidSell.userId};
+								
 				
 				$.ajax({
 					
 					type:"get"
-					, url:"/bid/create"
-					, data:{"modelId":modelId, "act":act, "price":price, "size":size, "address":address, "account":account}
+					, url:"/bid/deal"
+					, data:{"modelId":modelId, "act":act, "price":price, "size":size, "userId":userId}
 					, success:function(data){
 						if(data.result="success"){
 							location.reload();
@@ -300,21 +301,23 @@
 			
 			
 			
-			$("sellNowConfirmBtn").on("click", function(){
+			$("#sellNowConfirmBtn").on("click", function(){
 				
 				let modelId = ${param.modelId};
 				let act = '${param.act}';
-				let price = 15555;
+				let price = ${bidBuy.price};
 				let size = ${param.size};
 				// let address = null;
 				// let account = null;
+				let userId = ${bidBuy.userId};
+
 				
 				
 				$.ajax({
 					
 					type:"get"
-					, url:"/bid/create"
-					, data:{"modelId":modelId, "act":act, "price":price, "size":size}
+					, url:"/bid/deal"
+					, data:{"modelId":modelId, "act":act, "price":price, "size":size, "userId":userId}
 					, success:function(data){
 						if(data.result="success"){
 							location.reload();
