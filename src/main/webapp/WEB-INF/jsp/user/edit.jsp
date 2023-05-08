@@ -50,7 +50,6 @@
 						<h3>" ${userName} " 님 안녕하세요</h3> 
 					</div>
 					<a href="/user/logout/view">로그아웃</a>
-					<button type="button" id="logoutBtn">로그아웃</button>				
 				</div>
 				<hr>
 				<div>
@@ -58,13 +57,13 @@
 					<br>
 					
 						<div class="d-flex justify-content-center">
-							<h5>이메일 주소</h5>
+							<h5 class="mr-5">이메일 주소</h5>
 							<input type="text" id="emailInput" value="${email}">						
 						</div>
 						<br>
 						
 						<div class="d-flex justify-content-center">
-							<h5>비밀번호</h5>					
+							<h5 class="mr-5">비밀번호</h5>  					
 							<input type="text" id="passwordInput" placeholder="수정할 비밀번호를 입력하세요">
 						</div>
 				</div>
@@ -74,19 +73,20 @@
 					<h3>개인 정보</h3>
 					<br>
 						<div class="d-flex justify-content-center">
-							<h5>이름</h5>
+							
+							<h5 class="mr-5">이름</h5>
 							<input type="text" id="userNameInput" value="${userName}">	<br>
 						</div>
 						<br>
 						
 						<div class="d-flex justify-content-center">
-							<h5>휴대폰 번호</h5>	
+							<h5 class="mr-5">휴대폰 번호</h5>	
 							<input type="text" id="phoneNumberInput" value="${user.phoneNumber}">	<br>
 						</div>
 						<br>
 						
 						<div class="d-flex justify-content-center">
-							<h5>주소지</h5>	
+							<h5 class="mr-5">주소지</h5>	
 							<input type="text" id="addressInput" value="${user.address}">	<br>	
 						</div>
 				</div>
@@ -94,9 +94,9 @@
 				
 				<br>
 				<div class="d-flex justify-content-center">
-					<button type="button" id="editBtn">회원가입 수정</button>	
+					<button type="button" id="editBtn" class="mr-5">회원가입 수정</button>	
 					
-					<a href="">관리자용 게시버튼</a>				
+					<a href="/goods/create/view">관리자용 게시버튼</a>				
 				</div>
 					
 				<hr>	

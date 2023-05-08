@@ -40,10 +40,12 @@
 		
 		<section class="contents">
 		
-			<div class="create-box text-center d-flex justify-content-between">
+			<div class="create-box text-center d-flex justify-content-around">
 			
 			<div>
 				<input type="file" id="fileInput">
+				
+				<hr>
 				
 				<h5>카테고리 입력</h5>	
 				<select id="categoryInput">
@@ -52,9 +54,10 @@
 					<option value="가방">가방</option>
 					<option value="지갑">지갑</option>
 					<option value="시계">시계</option>
-					<option value="" selected>select one</option>
+					<option value="" selected>Select One</option>
 				</select>
-				<br>
+				
+				<hr>
 				
 
 				<h5>성별 입력</h5>	
@@ -63,7 +66,7 @@
 					<option value="여성">여성</option>
 					<option value="키즈">키즈</option>
 					<option value="모든 성별">모든 성별</option>
-					<option value="" selected>select one</option>
+					<option value="" selected>Select One</option>
 				</select>
 			
 			</div>
@@ -71,43 +74,43 @@
 			
 				<div>
 					<div class="d-flex">
-						<h5>제품 브랜드</h5>
+						<h5 class="mr-5">제품 브랜드 </h5>
 						<input type="text" id="brandInput" placeholder="제품 브랜드를 입력하세요">									
 					</div>
 					<br>
 					
 					<div class="d-flex">
-						<h5>제품 영문 명</h5>
+						<h5 class="mr-5">제품 영문 명</h5>
 						<input type="text" id="modelEnglishNameInput" placeholder="제품 영문 명을 입력하세요">									
 					</div>
 					<br>
 					
 					<div class="d-flex">
-						<h5>제품 한글 명</h5>
+						<h5 class="mr-5">제품 한글 명</h5>
 						<input type="text" id="modelKoreanNameInput" placeholder="제품 한글 명을 입력하세요">	
 					</div>
 					<br>
 							
 					<div class="d-flex">
-						<h5>모델번호</h5>
+						<h5 class="mr-5">모델번호</h5>
 						<input type="text" id="modelNumberInput" placeholder="제품 모델번호를 입력하세요">						
 					</div>	
 					<br>
 							
 					<div class="d-flex">
-						<h5>출시일</h5>
+						<h5 class="mr-5">출시일</h5>
 						<input type="text" id="launchDateInput" placeholder="제품 출시일을 입력하세요">						
 					</div>
 					<br>
 					
 					<div class="d-flex">
-						<h5>컬러</h5>
+						<h5 class="mr-5">컬러</h5>
 						<input type="text" id="mainColorInput" placeholder="제품 컬러를 입력하세요">						
 					</div>
 					<br>
 					
 					<div class="d-flex">
-						<h5>발매가</h5>
+						<h5 class="mr-5">발매가</h5>
 						<input type="text" id="launchPriceInput" placeholder="제품 발매가를 입력하세요">		
 					</div>
 					<br>

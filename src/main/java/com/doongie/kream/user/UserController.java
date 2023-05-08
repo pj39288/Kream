@@ -61,5 +61,11 @@ public class UserController {
 		return "/user/edit";
 	}
 	
+	// 사이트 메인 페이지
+	@GetMapping("/main/view")
+	public String userMain() {
+		return "/post/main";
+	}
+	
 
 }

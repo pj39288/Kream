@@ -94,7 +94,7 @@
 					, data:{"email":email, "password":password}
 					, success:function(data){
 						if(data.result == "success"){
-							location.href="/user/login/view";
+							location.href="/goods/list/view";
 						} else {
 							alert("로그인 실패");
 						}			

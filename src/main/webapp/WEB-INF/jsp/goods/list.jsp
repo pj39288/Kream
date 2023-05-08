@@ -19,22 +19,10 @@
 <body>
 
 	<div id="wrap">
-		<div class="d-flex">
+	
 		
-			<header>
-				<h1>KREAM</h1>
-			</header>
-			
-			<nav>
-				<ul class="nav nav-fill">
-					<li class="nav-item"><a href="#" class="nav-link main-link">HOME</a></li>
-					<li class="nav-item"><a href="#" class="nav-link main-link">STYLE</a></li>
-					<li class="nav-item"><a href="#" class="nav-link main-link">SHOP</a></li>
-					<li class="nav-item"><a href="/user/edit/view" class="nav-link main-link">MY</a></li>
-				</ul>
-			</nav>
+		<c:import url="/WEB-INF/jsp/include/header.jsp"></c:import>
 		
-		</div>
 		
 		<br>
 		
@@ -42,7 +30,7 @@
 		
 			<div class="text-center d-flex justify-content-between">
 			
-				<nav>
+				<nav class="nav-2">
 					<ul class="nav nav-fill">
 						<li class="nav-item"><a href="/goods/list/view" class="nav-link main-link">전체</a></li>
 						<li class="nav-item"><a href="/goods/list/view?category=신발" class="nav-link main-link">신발</a></li>
@@ -98,14 +86,8 @@
 			</div>
 		
 		</section>
-		
-		<footer>
-			
-			<div class="text-center">
-				<hr>
-				© KREAM Corp.		
-			</div>
-		</footer>
+
+		<c:import url="/WEB-INF/jsp/include/footer.jsp"></c:import>
 	
 	</div>
 	

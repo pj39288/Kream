@@ -7,11 +7,22 @@
 
 header{
 	height:100px;
-	width:200px;
-	background-color:#dddddd;
+	width:1200px;
 }
 
-nav{
+.nav-1{
+	height:100px;
+	width:500px;
+}
+
+.nav-2{
+	height:100px;
+	width:1200px;
+}
+
+
+
+.contents > .nav-box{
 	height:100px;
 	width:1000px;
 }
@@ -19,36 +30,32 @@ nav{
 
 .contents > .join-box{
 	height:1000px;
-	width:800px;
+	width:1200px;
 }
 
 .contents > .login-box{
 	height:700px;
-	width:800px;
+	width:1200px;
 }
 
 .contents > .edit-box{
-	height:1000px;
+	height:70px;
 	width:800px;
 }
 
 .contents > .create-box{
 	height: 1000px;
-	width: 800px;
+	width: 1200px;
 }
 
 .contents > .detail-box{
-	height:1000px;
-	width:1200px;
-	background-color:#dddddd;
-	
+	height:700px;
+	width:1200px;	
 }
 
 .contents > .bid-box{
 	height:1000px;
 	width:1200px;
-	background-color:#dddddd;
-	
 }
 
 .filter{
@@ -59,7 +66,6 @@ nav{
 .list-box{
 	height:1000px;
 	width:1000px;
-	background-color:#dddddd;
 }
 
 .list-box-content{
