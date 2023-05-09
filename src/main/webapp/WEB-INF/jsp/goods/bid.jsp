@@ -19,19 +19,20 @@
 <body>
 
 	<div id="wrap">
-		<div class="d-flex">
+		<div class="d-flex justify-content-between">
 		
-			<header>
+			<div>
 				<h1>KREAM</h1>
-			</header>
+			</div>
 			
-			<div text center>
-				<h1>입찰하기</h1>
+			<div>
+				<h2>입찰하기</h2>
 			</div>
 		
 		</div>
 		
 		<br>
+		
 		
 		<section class="contents">
 		
@@ -104,7 +105,7 @@
 							<div id="buyMain">
 								<h5>즉시 구매가</h5>
 								
-								<button type="button" id="buyNowConfirmBtn">즉시 구매 계속</button>
+								<button type="button" id="buyNowConfirmBtn" data-price = "${bidSell.price}" data-user-id = "${bidSell.userId}">즉시 구매 계속</button>
 							</div>
 						
 						</div>
@@ -124,7 +125,7 @@
 							<div id="sellMain">
 								<h5>즉시 판매가</h5>
 								
-								<button type="button" id="sellNowConfirmBtn">즉시 판매 계속</button>
+								<button type="button" id="sellNowConfirmBtn" data-price = "${bidBuy.price}" data-user-id = "${bidBuy.userId}">즉시 판매 계속</button>
 							</div>
 						
 						</div>
@@ -135,9 +136,15 @@
 				</c:choose>		
 				
 				
+				
+				<div id="commonTag" data-model-id = "${param.modelId}" data-act = "${param.act}" data-size = "${param.size}"></div>
+
+
+
+				
+
 	
-				
-				
+							
 			
 			</div>
 			
@@ -190,12 +197,13 @@
 
 			$("#buyBidConfirmBtn").on("click", function(){
 
-				let modelId = ${param.modelId};
-				let act = '${param.act}';
 				let price = $("#buyBidInput").val();
-				let size = ${param.size};
-				// let address = null;
-				// let account = null;
+				
+				let modelId = $("#commonTag").data("model-id");
+				let act = $("#commonTag").data("act");
+				let size = $("#commonTag").data("size");
+
+
 				
 				if(price == ""){
 					alert("구매 희망 가격을 입력하세요");
@@ -229,14 +237,20 @@
 			
 			$("#buyNowConfirmBtn").on("click", function(){
 				
-				let modelId = ${param.modelId};
-				let act = '${param.act}';
-				let price = ${bidSell.price};
-				let size = ${param.size};
-				// let address = null;
-				// let account = null;
-				let userId = ${bidSell.userId};
-								
+				//let modelId = ${param.modelId};
+				//let act = '${param.act}';
+				//let price = ${bidSell.price};
+				//let size = ${param.size};
+				//let userId = ${bidSell.userId};
+				
+				let modelId = $("#commonTag").data("model-id");
+				let act = $("#commonTag").data("act");
+				let price = $(this).data("price");
+				let size = $("#commonTag").data("size");
+				let userId = $(this).data("user-id");
+
+
+
 				
 				$.ajax({
 					
@@ -264,12 +278,13 @@
 
 			$("#sellBidConfirmBtn").on("click", function(){
 
-				let modelId = ${param.modelId};
-				let act = '${param.act}';
+
 				let price = $("#sellBidInput").val();
-				let size = ${param.size};
-				// let address = null;
-				// let account = null;
+				
+				let modelId = $("#commonTag").data("model-id");
+				let act = $("#commonTag").data("act");
+				let size = $("#commonTag").data("size");
+
 				
 				if(price == ""){
 					alert("판매 희망 가격을 입력하세요");
@@ -303,13 +318,14 @@
 			
 			$("#sellNowConfirmBtn").on("click", function(){
 				
-				let modelId = ${param.modelId};
-				let act = '${param.act}';
-				let price = ${bidBuy.price};
-				let size = ${param.size};
-				// let address = null;
-				// let account = null;
-				let userId = ${bidBuy.userId};
+
+				
+				let modelId = $("#commonTag").data("model-id");
+				let act = $("#commonTag").data("act");
+				let size = $("#commonTag").data("size");
+
+				let price = $(this).data("price");
+				let userId = $(this).data("user-id");
 
 				
 				

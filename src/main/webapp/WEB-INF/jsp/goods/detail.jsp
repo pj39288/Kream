@@ -12,6 +12,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 
@@ -127,6 +128,11 @@
 					
 					</div>
 					
+					
+					
+					<div id="chart_div"></div>
+					
+					
 				</div>
 
 				
@@ -215,14 +221,48 @@
 	  </div>
 	</div>
 	
+	
+		
+	
 	<script>
 
-		${".btn-primary"}.click(function(){
-			
-			var data = $(this).data()
-			
-		});
-		
+	google.charts.load('current', {packages: ['corechart', 'line']});
+	google.charts.setOnLoadCallback(drawBasic);
+
+	function drawBasic() {
+
+	      var data = new google.visualization.DataTable();
+	      data.addColumn('number', 'X');
+	      data.addColumn('number', 'Dogs');
+
+	      data.addRows([
+	        [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+	        [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+	        [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+	        [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+	        [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+	        [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+	        [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+	        [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+	        [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+	        [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+	        [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+	        [66, 70], [67, 72], [68, 75], [69, 80]
+	      ]);
+
+	      var options = {
+	        hAxis: {
+	          title: 'Time'
+	        },
+	        vAxis: {
+	          title: 'Popularity'
+	        }
+	      };
+
+	      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+	      chart.draw(data, options);
+	    }		
 		
 		
 
