@@ -1,6 +1,8 @@
 package com.doongie.kream.bid;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doongie.kream.bid.bo.BidBO;
+import com.doongie.kream.bid.model.Deal;
 
 @RestController
 @RequestMapping("/bid")
@@ -85,6 +88,22 @@ public class BidRestController {
 		}
 		
 		return resultMap;
+		
+	}
+	
+	
+	@GetMapping("/dealList")
+	public List<Deal> getDeal(
+			@RequestParam("modelId") int modelId
+			, @RequestParam("size") String size){
+		
+		List<Deal> dealList = new ArrayList<>();
+		
+		dealList = bidBO.getDeal(modelId, size);
+		
+		return dealList;
+		
+		
 		
 	}
 	

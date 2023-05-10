@@ -101,6 +101,25 @@
 	
 	</delete>
 	
+	<select id="selectDeal" parameterType="map">
+		SELECT 
+			`id`
+			, `buyerId`
+			, `sellerId`
+			, `modelId`
+			, `price`
+			, `size`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`deal`
+		WHERE
+			`modelId` = #{modelId}
+		AND 
+			`size` = #{size}
+	
+	</select>
+	
 
 
 
