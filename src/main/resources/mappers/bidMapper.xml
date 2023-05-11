@@ -101,7 +101,7 @@
 	
 	</delete>
 	
-	<select id="selectDeal" parameterType="map">
+	<select id="selectDeal" parameterType="map" resultType="com.doongie.kream.bid.model.Deal">
 		SELECT 
 			`id`
 			, `buyerId`

@@ -224,36 +224,80 @@
 	
 	
 	<script>
-
-	google.charts.load('current', {packages: ['corechart', 'line']});
-	google.charts.setOnLoadCallback(drawBasic);
-
-	function drawBasic() {
-
-	      var data = new google.visualization.DataTable();
-	      data.addColumn('date', 'X');
-	      data.addColumn('number', 'Deal');
-
-	      data.addRows([
-	      // date는 문자열로 해야한다?
-	      [2023-05-04 18:17:05, 2500000], [2023-05-04 18:34:27, 1800000], [2023-05-04 18:35:32, 1500000]
-		  // [5, 2500000], [7, 1800000], [2, 1500000]
-
-	      ]);
-
-	      var options = {
-	        hAxis: {
-	          title: 'Date'
-	        },
-	        vAxis: {
-	          title: 'Price'
-	        }
-	      };
-
-	      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-
-	      chart.draw(data, options);
-	    }		
+		
+		// 그래프를 위한 데이터 얻어오는 파트
+		$(document).ready(function(){
+			
+			let modelId = ${goods.id};
+			let size = ${param.size};
+			
+			let graph = []
+			let graphData = []
+						
+			$.ajax({
+				
+				
+				type:"get"
+				, url:"/bid/dealList"
+				, data:{"modelId":modelId, "size":size}
+				, success:function(data){
+					console.log(data);
+					for(let i = 0; i < data.length; i++){
+						
+						graphData = [data[i].createdAt.slice(0, 10), data[i].price];
+						
+						graph.push({graphData});	
+												
+					}
+					
+					console.log(graph);
+				}
+				, error:function(){
+					alert("그래프 호출 에러");
+				}
+				
+			});
+			
+			
+		});
+		
+		
+			
+		
+	
+	
+	
+	
+		// 선 그래프 생성 파트
+		google.charts.load('current', {packages: ['corechart', 'line']});
+		google.charts.setOnLoadCallback(drawBasic);
+	
+		function drawBasic() {
+	
+		      var data = new google.visualization.DataTable();
+		      data.addColumn('string', 'X');
+		      data.addColumn('number', 'Deal');
+		      
+		      data.addRows([
+		      // date는 문자열로 해야한다?
+		      ["2017-01-26", 2500000],  ["2018-01-26", 2500000],  ["2019-01-26", 1200000]
+			  // [5, 2500000], [7, 1800000], [2, 1500000]
+	
+		      ]);
+	
+		      var options = {
+		        hAxis: {
+		          title: 'Date'
+		        },
+		        vAxis: {
+		          title: 'Price'
+		        }
+		      };
+	
+		      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+	
+		      chart.draw(data, options);
+		    }		
 		
 		
 

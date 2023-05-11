@@ -98,7 +98,7 @@ public class BidRestController {
 			, @RequestParam("size") String size){
 		
 		List<Deal> dealList = new ArrayList<>();
-		
+
 		dealList = bidBO.getDeal(modelId, size);
 		
 		return dealList;
