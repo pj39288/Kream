@@ -50,7 +50,12 @@ header{
 
 .contents > .detail-box{
 	height:700px;
-	width:1200px;	
+	width:1200px;		
+}
+
+#description{
+	width:600px;
+	height:700px;
 }
 
 .contents > .bid-box{

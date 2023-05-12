@@ -34,7 +34,7 @@
 					<img width="90%" src="${goods.imagePath}"> <br>				
 				</div>
 				
-				<div>
+				<div id="description">
 					${goods.brand} <br>
 					${goods.modelEnglishName} <br>
 					${goods.modelKoreanName} <br>
@@ -225,14 +225,14 @@
 	
 	<script>
 		
+		var graph = [];
+		
 		// 그래프를 위한 데이터 얻어오는 파트
 		$(document).ready(function(){
 			
 			let modelId = ${goods.id};
 			let size = ${param.size};
 			
-			let graph = []
-			let graphData = []
 						
 			$.ajax({
 				
@@ -241,16 +241,19 @@
 				, url:"/bid/dealList"
 				, data:{"modelId":modelId, "size":size}
 				, success:function(data){
+					
+					
 					console.log(data);
 					for(let i = 0; i < data.length; i++){
 						
-						graphData = [data[i].createdAt.slice(0, 10), data[i].price];
+						let graphData = [data[i].createdAt.slice(0, 10), data[i].price];
 						
-						graph.push({graphData});	
-												
+						graph.push(graphData);
+										
 					}
 					
 					console.log(graph);
+					
 				}
 				, error:function(){
 					alert("그래프 호출 에러");
@@ -258,6 +261,8 @@
 				
 			});
 			
+			google.charts.load('current', {packages: ['corechart', 'line']});
+			google.charts.setOnLoadCallback(drawBasic);
 			
 		});
 		
@@ -266,11 +271,7 @@
 		
 	
 	
-	
-	
 		// 선 그래프 생성 파트
-		google.charts.load('current', {packages: ['corechart', 'line']});
-		google.charts.setOnLoadCallback(drawBasic);
 	
 		function drawBasic() {
 	
@@ -278,12 +279,13 @@
 		      data.addColumn('string', 'X');
 		      data.addColumn('number', 'Deal');
 		      
-		      data.addRows([
-		      // date는 문자열로 해야한다?
-		      ["2017-01-26", 2500000],  ["2018-01-26", 2500000],  ["2019-01-26", 1200000]
-			  // [5, 2500000], [7, 1800000], [2, 1500000]
-	
-		      ]);
+		      //data.addRows([
+		      //// date는 문자열로 해야한다?
+		      //["2017-01-26", 2500000],  ["2018-01-26", 2500000],  ["2019-01-26", 1200000]
+			  //// [5, 2500000], [7, 1800000], [2, 1500000]
+		      // ]);
+		      
+		      data.addRows(graph);
 	
 		      var options = {
 		        hAxis: {
@@ -298,6 +300,8 @@
 	
 		      chart.draw(data, options);
 		    }		
+	
+	
 		
 		
 
