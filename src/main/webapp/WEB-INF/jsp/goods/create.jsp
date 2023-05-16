@@ -198,7 +198,7 @@
 				$.ajax({
 					
 					type:"post"
-					, url:"/model/create"
+					, url:"/goods/create"
 					, data:formData
 					, enctype:"multipart/form-data"
 					, processData:false
